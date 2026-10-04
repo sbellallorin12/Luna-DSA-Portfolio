@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Home | My Flask Portfolio{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-copy">
+        <span class="eyebrow">FLASK • PYTHON • WEB DEVELOPMENT</span>
+        <h1>Welcome to<br><span>My Portfolio!</span></h1>
+        <p>A personal portfolio web application created using Flask, Jinja2, HTML, CSS, and JavaScript.</p>
+        <div class="hero-actions">
+            <a class="btn primary" href="{{ url_for('profile') }}">Explore My Profile</a>
+            <a class="btn secondary" href="{{ url_for('area') }}">Try the Programs</a>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="profile-orb">
+            <img src="{{ url_for('static', filename='image.jpg') }}" alt="Profile photo placeholder">
+        </div>
+        <div class="floating-card card-one">Python<br><strong>Flask</strong></div>
+        <div class="floating-card card-two">Data<br><strong>Structures</strong></div>
+    </div>
+</section>
+
+{% endblock %}

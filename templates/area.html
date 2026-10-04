@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Area Calculator | My Flask Portfolio{% endblock %}
+{% block content %}
+<section class="page-header"><span class="eyebrow">PROGRAMMING WORK #1</span><h1>Area Calculator</h1><p>Working Flask implementations for the area of a circle and the area of a triangle.</p></section>
+{% if error %}<div class="alert error">{{ error }}</div>{% endif %}
+<section class="calculator-grid">
+    <div class="panel calculator-card">
+        <div class="number-badge">π</div><h2>Area of a Circle</h2><p class="formula">A = πr²</p>
+        <form method="POST">
+            <input type="hidden" name="shape" value="circle">
+            <label for="radius">Radius</label><input id="radius" type="number" name="radius" step="any" min="0" placeholder="e.g. 5" required>
+            <button class="btn primary full" type="submit">Calculate Circle Area</button>
+        </form>
+        {% if circle_area is not none %}<div class="result"><small>RESULT</small><strong>{{ "%.2f"|format(circle_area) }}</strong> square units</div>{% endif %}
+    </div>
+    <div class="panel calculator-card">
+        <div class="number-badge">△</div><h2>Area of a Triangle</h2><p class="formula">A = ½bh</p>
+        <form method="POST">
+            <input type="hidden" name="shape" value="triangle">
+            <label for="base">Base</label><input id="base" type="number" name="base" step="any" min="0" placeholder="e.g. 10" required>
+            <label for="height">Height</label><input id="height" type="number" name="height" step="any" min="0" placeholder="e.g. 5" required>
+            <button class="btn primary full" type="submit">Calculate Triangle Area</button>
+        </form>
+        {% if triangle_area is not none %}<div class="result"><small>RESULT</small><strong>{{ "%.2f"|format(triangle_area) }}</strong> square units</div>{% endif %}
+    </div>
+</section>
+{% endblock %}

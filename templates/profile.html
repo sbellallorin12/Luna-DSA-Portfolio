@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Profile | My Flask Portfolio{% endblock %}
+{% block content %}
+<section class="page-header"><span class="eyebrow">ABOUT ME</span><h1>My Profile</h1></section>
+<section class="profile-layout">
+    <div class="profile-photo panel"><img src="{{ url_for('static', filename='image.jpg') }}" alt="Profile photo placeholder"></div>
+    <div class="panel profile-details">
+        <p class="label">NAME</p><h2>Sybella Llorin Luna</h2>
+        <p class="label">PROGRAM</p><h3>Bachelor of Science in Computer Engineering Specializing in Data Analytics</h3>
+        <p class="label">ABOUT ME</p><p>I am a computer engineering student interested in technology, programming, problem-solving, and creative digital projects. This portfolio demonstrates what I learned about Flask, Jinja2, HTML, CSS, JavaScript, and basic data structures.</p>
+        <div class="tag-row"><span>Programming</span><span>Web Development</span><span>Data Structures</span><span>Technology</span></div>
+        <p class="label">GOAL</p><p>To leverage my skills in computer engineering and data analytics to develop innovative, data-driven solutions and optimize complex technological systems.</p>
+    </div>
+</section>
+{% endblock %}

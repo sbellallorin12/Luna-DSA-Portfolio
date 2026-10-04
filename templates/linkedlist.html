@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Linked List | My Flask Portfolio{% endblock %}
+{% block content %}
+<section class="page-header"><span class="eyebrow">PROGRAMMING WORK #2</span><h1>Linked List</h1><p>A simple singly linked list with an interactive UI for adding, deleting, and clearing nodes.</p></section>
+{% if message %}<div class="alert {{ message_type }}">{{ message }}</div>{% endif %}
+<section class="linked-layout">
+    <div class="panel linked-controls">
+        <h2>Manage Nodes</h2>
+        <form method="POST"><input type="hidden" name="action" value="add"><label for="add-value">Add a value</label><input id="add-value" type="text" name="value" placeholder="e.g. 10" required><button class="btn primary full" type="submit">+ Add Node</button></form>
+        <form method="POST"><input type="hidden" name="action" value="delete"><label for="delete-value">Delete a value</label><input id="delete-value" type="text" name="value" placeholder="e.g. 10" required><button class="btn secondary full" type="submit">Delete Node</button></form>
+        <form method="POST"><input type="hidden" name="action" value="clear"><button class="btn danger full" type="submit">Clear Linked List</button></form>
+    </div>
+    <div class="panel list-display">
+        <div class="list-heading"><h2>Current Linked List</h2><span>{{ values|length }} node{% if values|length != 1 %}s{% endif %}</span></div>
+        <div class="nodes">
+            {% if values %}
+                {% for value in values %}<div class="node-wrap"><div class="node">{{ value }}</div>{% if not loop.last %}<div class="arrow">→</div>{% endif %}</div>{% endfor %}
+            {% else %}<div class="empty-state"><strong>Empty list</strong><p>Add your first node using the form.</p></div>{% endif %}
+        </div>
+        <div class="code-note"><strong>Operations implemented:</strong> Node creation, insertion at the end, deletion by value, traversal/display, and clearing.</div>
+    </div>
+</section>
+{% endblock %}
